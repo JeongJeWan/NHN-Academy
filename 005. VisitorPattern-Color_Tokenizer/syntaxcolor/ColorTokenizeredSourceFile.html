@@ -1,0 +1,1114 @@
+<html>
+<header>
+<link rel="stylesheet" href="ColorTokenizeredSourceFile.css">
+</header>
+</html>
+<div>
+<span style="color:blue">import</span>
+&nbsp;
+<span style="color:green">java</span>
+<span style="color:red">.</span>
+<span style="color:green">io</span>
+<span style="color:red">.</span>
+<span style="color:green">File</span>
+<span style="color:red">;</span></div>
+<div>
+<span style="color:blue">import</span>
+&nbsp;
+<span style="color:green">java</span>
+<span style="color:red">.</span>
+<span style="color:green">io</span>
+<span style="color:red">.</span>
+<span style="color:green">FileWriter</span>
+<span style="color:red">;</span></div>
+<div>
+<span style="color:blue">import</span>
+&nbsp;
+<span style="color:green">java</span>
+<span style="color:red">.</span>
+<span style="color:green">io</span>
+<span style="color:red">.</span>
+<span style="color:green">IOException</span>
+<span style="color:red">;</span></div>
+<div>
+<span style="color:blue">import</span>
+&nbsp;
+<span style="color:green">java</span>
+<span style="color:red">.</span>
+<span style="color:green">io</span>
+<span style="color:red">.</span>
+<span style="color:green">PrintWriter</span>
+<span style="color:red">;</span></div>
+<div>
+<span style="color:blue">import</span>
+&nbsp;
+<span style="color:green">java</span>
+<span style="color:red">.</span>
+<span style="color:green">util</span>
+<span style="color:red">.</span>
+<span style="color:green">List</span>
+<span style="color:red">;</span></div>
+<div>
+<span style="color:blue">import</span>
+&nbsp;
+<span style="color:green">java</span>
+<span style="color:red">.</span>
+<span style="color:green">util</span>
+<span style="color:red">.</span>
+<span style="color:green">Scanner</span>
+<span style="color:red">;</span></div>
+<div>
+<span style="color:blue">public</span>
+&nbsp;
+<span style="color:blue">class</span>
+&nbsp;
+<span style="color:black">Test</span>
+&nbsp;
+<span style="color:red">{</span></div>
+<div>
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+<span style="color:blue">public</span>
+&nbsp;
+<span style="color:blue">static</span>
+&nbsp;
+<span style="color:blue">void</span>
+&nbsp;
+<span style="color:black">main</span>
+<span style="color:red">(</span>
+<span style="color:green">String</span>
+<span style="color:red">[</span>
+<span style="color:red">]</span>
+&nbsp;
+<span style="color:black">args</span>
+<span style="color:red">)</span>
+&nbsp;
+<span style="color:blue">throws</span>
+&nbsp;
+<span style="color:green">IOException</span>
+&nbsp;
+<span style="color:red">{</span></div>
+<div>
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+<span style="color:green">Scanner</span>
+&nbsp;
+<span style="color:black">scanner</span>
+&nbsp;
+<span style="color:red">=</span>
+&nbsp;
+<span style="color:blue">new</span>
+&nbsp;
+<span style="color:green">Scanner</span>
+<span style="color:red">(</span>
+<span style="color:green">System</span>
+<span style="color:red">.</span>
+<span style="color:black">in</span>
+<span style="color:red">)</span>
+<span style="color:red">;</span></div>
+<div>
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+<span style="color:green">System</span>
+<span style="color:red">.</span>
+<span style="color:black">out</span>
+<span style="color:red">.</span>
+<span style="color:black">println</span>
+<span style="color:red">(</span>
+<span style="color:black">"</span>
+<span style="color:black">Input</span>
+&nbsp;
+<span style="color:black">source</span>
+&nbsp;
+<span style="color:black">file</span>
+&nbsp;
+<span style="color:black">name</span>
+<span style="color:black">:</span>
+&nbsp;
+<span style="color:black">"</span>
+<span style="color:red">)</span>
+<span style="color:red">;</span></div>
+<div>
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+<span style="color:green">String</span>
+&nbsp;
+<span style="color:black">fileName</span>
+&nbsp;
+<span style="color:red">=</span>
+&nbsp;
+<span style="color:black">scanner</span>
+<span style="color:red">.</span>
+<span style="color:black">nextLine</span>
+<span style="color:red">(</span>
+<span style="color:red">)</span>
+<span style="color:red">;</span></div>
+<div>
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+<span style="color:green">KeywordTokenizer</span>
+&nbsp;
+<span style="color:black">tokenizer</span>
+&nbsp;
+<span style="color:red">=</span>
+&nbsp;
+<span style="color:blue">new</span>
+&nbsp;
+<span style="color:green">KeywordTokenizer</span>
+<span style="color:red">(</span>
+<span style="color:black">fileName</span>
+<span style="color:red">)</span>
+<span style="color:red">;</span></div>
+<div>
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+<span style="color:black">scanner</span>
+<span style="color:red">.</span>
+<span style="color:black">close</span>
+<span style="color:red">(</span>
+<span style="color:red">)</span>
+<span style="color:red">;</span></div>
+<div>
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+<span style="color:green">List</span>
+<span style="color:red"><</span>
+<span style="color:green">Token</span>
+<span style="color:red">></span>
+&nbsp;
+<span style="color:black">list</span>
+&nbsp;
+<span style="color:red">=</span>
+&nbsp;
+<span style="color:black">tokenizer</span>
+<span style="color:red">.</span>
+<span style="color:black">getToken</span>
+<span style="color:red">(</span>
+<span style="color:red">)</span>
+<span style="color:red">;</span></div>
+<div>
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+<span style="color:green">IVisitor</span>
+&nbsp;
+<span style="color:black">keywordIVisitor</span>
+&nbsp;
+<span style="color:red">=</span>
+&nbsp;
+&nbsp;
+<span style="color:blue">new</span>
+&nbsp;
+<span style="color:black">KeywordVisitor</span>
+<span style="color:red">(</span>
+<span style="color:red">)</span>
+<span style="color:red">;</span></div>
+<div>
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+<span style="color:green">IVisitor</span>
+&nbsp;
+<span style="color:black">symbolIVisitor</span>
+&nbsp;
+<span style="color:red">=</span>
+&nbsp;
+<span style="color:blue">new</span>
+&nbsp;
+<span style="color:black">SymbolVisitor</span>
+<span style="color:red">(</span>
+<span style="color:red">)</span>
+<span style="color:red">;</span></div>
+<div>
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+<span style="color:green">IVisitor</span>
+&nbsp;
+<span style="color:black">idetifierIVisitor</span>
+&nbsp;
+<span style="color:red">=</span>
+&nbsp;
+<span style="color:blue">new</span>
+&nbsp;
+<span style="color:black">IdentifierVisitor</span>
+<span style="color:red">(</span>
+<span style="color:red">)</span>
+<span style="color:red">;</span></div>
+<div>
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+<span style="color:green">IVisitor</span>
+&nbsp;
+<span style="color:black">whiteSpaceIVisitor</span>
+&nbsp;
+<span style="color:red">=</span>
+&nbsp;
+<span style="color:blue">new</span>
+&nbsp;
+<span style="color:black">WhitespaceVisitor</span>
+<span style="color:red">(</span>
+<span style="color:red">)</span>
+<span style="color:red">;</span></div>
+<div>
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+<span style="color:blue">try</span>
+&nbsp;
+<span style="color:red">{</span></div>
+<div>
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+<span style="color:green">File</span>
+&nbsp;
+<span style="color:black">file</span>
+&nbsp;
+<span style="color:red">=</span>
+&nbsp;
+<span style="color:blue">new</span>
+&nbsp;
+<span style="color:green">File</span>
+<span style="color:red">(</span>
+<span style="color:black">"</span>
+<span style="color:black">ColorTokenizredSourceFile</span>
+<span style="color:red">.</span>
+<span style="color:black">html</span>
+<span style="color:black">"</span>
+<span style="color:red">)</span>
+<span style="color:red">;</span></div>
+<div>
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+<span style="color:green">FileWriter</span>
+&nbsp;
+<span style="color:black">fileWriter</span>
+&nbsp;
+<span style="color:red">=</span>
+&nbsp;
+<span style="color:blue">new</span>
+&nbsp;
+<span style="color:green">FileWriter</span>
+<span style="color:red">(</span>
+<span style="color:black">file</span>
+<span style="color:red">)</span>
+<span style="color:red">;</span></div>
+<div>
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+<span style="color:green">PrintWriter</span>
+&nbsp;
+<span style="color:black">printWriter</span>
+&nbsp;
+<span style="color:red">=</span>
+&nbsp;
+<span style="color:blue">new</span>
+&nbsp;
+<span style="color:green">PrintWriter</span>
+<span style="color:red">(</span>
+<span style="color:black">fileWriter</span>
+<span style="color:red">)</span>
+<span style="color:red">;</span></div>
+<div>
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+<span style="color:black">printWriter</span>
+<span style="color:red">.</span>
+<span style="color:black">println</span>
+<span style="color:red">(</span>
+<span style="color:black">"</span>
+<span style="color:red"><</span>
+<span style="color:black">html</span>
+<span style="color:red">></span>
+<span style="color:black">"</span>
+<span style="color:red">)</span>
+<span style="color:red">;</span></div>
+<div>
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+<span style="color:black">printWriter</span>
+<span style="color:red">.</span>
+<span style="color:black">println</span>
+<span style="color:red">(</span>
+<span style="color:black">"</span>
+<span style="color:red"><</span>
+<span style="color:black">header</span>
+<span style="color:red">></span>
+<span style="color:black">"</span>
+<span style="color:red">)</span>
+<span style="color:red">;</span></div>
+<div>
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+<span style="color:black">printWriter</span>
+<span style="color:red">.</span>
+<span style="color:black">println</span>
+<span style="color:red">(</span>
+<span style="color:black">"</span>
+<span style="color:red"><</span>
+<span style="color:black">link</span>
+&nbsp;
+<span style="color:black">rel=\</span>
+<span style="color:black">"</span>
+<span style="color:black">stylesheet\</span>
+<span style="color:black">"</span>
+&nbsp;
+<span style="color:black">href=\</span>
+<span style="color:black">"</span>
+<span style="color:black">ColorTokenizeredSourceFile</span>
+<span style="color:red">.</span>
+<span style="color:black">css\</span>
+<span style="color:black">"</span>
+<span style="color:red">></span>
+<span style="color:black">"</span>
+<span style="color:red">)</span>
+<span style="color:red">;</span></div>
+<div>
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+<span style="color:black">printWriter</span>
+<span style="color:red">.</span>
+<span style="color:black">println</span>
+<span style="color:red">(</span>
+<span style="color:black">"</span>
+<span style="color:red"><</span>
+<span style="color:black">/header</span>
+<span style="color:red">></span>
+<span style="color:black">"</span>
+<span style="color:red">)</span>
+<span style="color:red">;</span></div>
+<div>
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+<span style="color:black">printWriter</span>
+<span style="color:red">.</span>
+<span style="color:black">println</span>
+<span style="color:red">(</span>
+<span style="color:black">"</span>
+<span style="color:red"><</span>
+<span style="color:black">/html</span>
+<span style="color:red">></span>
+<span style="color:black">"</span>
+<span style="color:red">)</span>
+<span style="color:red">;</span></div>
+<div>
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+<span style="color:black">printWriter</span>
+<span style="color:red">.</span>
+<span style="color:black">println</span>
+<span style="color:red">(</span>
+<span style="color:black">"</span>
+<span style="color:red"><</span>
+<span style="color:black">div</span>
+<span style="color:red">></span>
+<span style="color:black">"</span>
+<span style="color:red">)</span>
+<span style="color:red">;</span></div>
+<div>
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+<span style="color:blue">for</span>
+<span style="color:red">(</span>
+<span style="color:green">Token</span>
+&nbsp;
+<span style="color:black">token</span>
+&nbsp;
+<span style="color:black">:</span>
+&nbsp;
+<span style="color:black">list</span>
+<span style="color:red">)</span>
+&nbsp;
+<span style="color:red">{</span></div>
+<div>
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+<span style="color:blue">if</span>
+&nbsp;
+<span style="color:red">(</span>
+<span style="color:black">token</span>
+&nbsp;
+<span style="color:blue">instanceof</span>
+&nbsp;
+<span style="color:green">KeywordToken</span>
+<span style="color:red">)</span>
+&nbsp;
+<span style="color:red">{</span></div>
+<div>
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+<span style="color:black">printWriter</span>
+<span style="color:red">.</span>
+<span style="color:black">println</span>
+<span style="color:red">(</span>
+<span style="color:black">keywordIVisitor</span>
+<span style="color:red">.</span>
+<span style="color:black">visit</span>
+<span style="color:red">(</span>
+<span style="color:black">token</span>
+<span style="color:red">)</span>
+<span style="color:red">)</span>
+<span style="color:red">;</span></div>
+<div>
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+<span style="color:red">}</span></div>
+<div>
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+<span style="color:blue">if</span>
+&nbsp;
+<span style="color:red">(</span>
+<span style="color:black">token</span>
+&nbsp;
+<span style="color:blue">instanceof</span>
+&nbsp;
+<span style="color:green">SymbolToken</span>
+<span style="color:red">)</span>
+&nbsp;
+<span style="color:red">{</span></div>
+<div>
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+<span style="color:black">printWriter</span>
+<span style="color:red">.</span>
+<span style="color:black">println</span>
+<span style="color:red">(</span>
+<span style="color:black">symbolIVisitor</span>
+<span style="color:red">.</span>
+<span style="color:black">visit</span>
+<span style="color:red">(</span>
+<span style="color:black">token</span>
+<span style="color:red">)</span>
+<span style="color:red">)</span>
+<span style="color:red">;</span></div>
+<div>
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+<span style="color:red">}</span></div>
+<div>
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+<span style="color:blue">if</span>
+&nbsp;
+<span style="color:red">(</span>
+<span style="color:black">token</span>
+&nbsp;
+<span style="color:blue">instanceof</span>
+&nbsp;
+<span style="color:green">IdentifierToken</span>
+<span style="color:red">)</span>
+&nbsp;
+<span style="color:red">{</span></div>
+<div>
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+<span style="color:black">printWriter</span>
+<span style="color:red">.</span>
+<span style="color:black">println</span>
+<span style="color:red">(</span>
+<span style="color:black">idetifierIVisitor</span>
+<span style="color:red">.</span>
+<span style="color:black">visit</span>
+<span style="color:red">(</span>
+<span style="color:black">token</span>
+<span style="color:red">)</span>
+<span style="color:red">)</span>
+<span style="color:red">;</span></div>
+<div>
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+<span style="color:red">}</span></div>
+<div>
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+<span style="color:blue">if</span>
+&nbsp;
+<span style="color:red">(</span>
+<span style="color:black">token</span>
+&nbsp;
+<span style="color:blue">instanceof</span>
+&nbsp;
+<span style="color:green">WhiteSpaceToken</span>
+<span style="color:red">)</span>
+&nbsp;
+<span style="color:red">{</span></div>
+<div>
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+<span style="color:black">printWriter</span>
+<span style="color:red">.</span>
+<span style="color:black">println</span>
+<span style="color:red">(</span>
+<span style="color:black">whiteSpaceIVisitor</span>
+<span style="color:red">.</span>
+<span style="color:black">visit</span>
+<span style="color:red">(</span>
+<span style="color:black">token</span>
+<span style="color:red">)</span>
+<span style="color:red">)</span>
+<span style="color:red">;</span></div>
+<div>
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+<span style="color:red">}</span></div>
+<div>
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+<span style="color:red">}</span></div>
+<div>
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+<span style="color:black">printWriter</span>
+<span style="color:red">.</span>
+<span style="color:black">println</span>
+<span style="color:red">(</span>
+<span style="color:black">"</span>
+<span style="color:red"><</span>
+<span style="color:black">/div</span>
+<span style="color:red">></span>
+<span style="color:black">"</span>
+<span style="color:red">)</span>
+<span style="color:red">;</span></div>
+<div>
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+<span style="color:black">printWriter</span>
+<span style="color:red">.</span>
+<span style="color:black">println</span>
+<span style="color:red">(</span>
+<span style="color:black">"</span>
+<span style="color:red"><</span>
+<span style="color:black">/body</span>
+<span style="color:red">></span>
+<span style="color:black">"</span>
+<span style="color:red">)</span>
+<span style="color:red">;</span></div>
+<div>
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+<span style="color:black">printWriter</span>
+<span style="color:red">.</span>
+<span style="color:black">println</span>
+<span style="color:red">(</span>
+<span style="color:black">"</span>
+<span style="color:red"><</span>
+<span style="color:black">/html</span>
+<span style="color:red">></span>
+<span style="color:black">"</span>
+<span style="color:red">)</span>
+<span style="color:red">;</span></div>
+<div>
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+<span style="color:black">printWriter</span>
+<span style="color:red">.</span>
+<span style="color:black">close</span>
+<span style="color:red">(</span>
+<span style="color:red">)</span>
+<span style="color:red">;</span></div>
+<div>
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+<span style="color:green">System</span>
+<span style="color:red">.</span>
+<span style="color:black">out</span>
+<span style="color:red">.</span>
+<span style="color:black">println</span>
+<span style="color:red">(</span>
+<span style="color:black">"</span>
+<span style="color:black">Color</span>
+&nbsp;
+<span style="color:black">Tokenized</span>
+&nbsp;
+<span style="color:black">Source</span>
+&nbsp;
+<span style="color:green">File</span>
+&nbsp;
+<span style="color:black">is</span>
+&nbsp;
+<span style="color:black">saved</span>
+&nbsp;
+<span style="color:black">to</span>
+&nbsp;
+<span style="color:black">"</span>
+&nbsp;
+<span style="color:red">+</span>
+&nbsp;
+<span style="color:black">file</span>
+<span style="color:red">.</span>
+<span style="color:black">getAbsolutePath</span>
+<span style="color:red">(</span>
+<span style="color:red">)</span>
+<span style="color:red">)</span>
+<span style="color:red">;</span></div>
+<div>
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+<span style="color:red">}</span></div>
+<div>
+&nbsp;
+<span style="color:blue">catch</span>
+&nbsp;
+<span style="color:red">(</span>
+<span style="color:green">IOException</span>
+&nbsp;
+<span style="color:black">e</span>
+<span style="color:red">)</span>
+&nbsp;
+<span style="color:red">{</span></div>
+<div>
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+<span style="color:black">e</span>
+<span style="color:red">.</span>
+<span style="color:black">printStackTrace</span>
+<span style="color:red">(</span>
+<span style="color:red">)</span>
+<span style="color:red">;</span></div>
+<div>
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+<span style="color:red">}</span></div>
+<div>
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+<span style="color:red">}</span></div>
+<div>
+<span style="color:red">}</span></div>
+<div>
+</div>
+</body>
+</html>

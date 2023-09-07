@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+        <!-- RestTemplate 빈 -->
+        <bean id="restTemplate" class="org.springframework.web.client.RestTemplate"/>
+
+        <!-- DoorayHookSender 빈 -->
+        <bean id="doorayHookSender" class="com.nhnacademy.edu.springframework.DoorayHookSender">
+                <constructor-arg index="0" ref="restTemplate"/>
+                <constructor-arg index="1" value="https://hook.dooray.com/services/3204376758577275363/3514081992077299709/HOTTporbR6CBAVodltB-Dw"/>
+        </bean>
+
+        <!-- DoorayMessageSender 빈 -->
+        <bean id="doorayMessageSender" class="com.nhnacademy.edu.springframework.DoorayMessageSender">
+                <constructor-arg ref="doorayHookSender"/>
+        </bean>
+
+        <!-- LoggingAspect 빈 -->
+        <bean id="loggingAspect" class="com.nhnacademy.edu.springframework.aop.LoggingAspect"/>
+
+
+        <!-- DoorayMessageSender AOP 설정 -->
+        <aop:config>
+                <aop:aspect id="loggingAspect" ref="loggingAspect">
+                        <aop:pointcut id="sendMessagePointcut" expression="@annotation(com.nhnacademy.edu.springframework.annotation.Timer)"/>
+                        <aop:around pointcut-ref="sendMessagePointcut" method="loggingExecutionTime"/>
+                </aop:aspect>
+        </aop:config>
+
+        <aop:aspectj-autoproxy proxy-target-class="true"/>
+
+</beans>

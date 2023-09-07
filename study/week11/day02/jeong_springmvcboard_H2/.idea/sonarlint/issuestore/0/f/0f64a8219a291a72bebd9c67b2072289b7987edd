@@ -1,0 +1,8 @@
+
+j	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(•ç²–8À‡„€1
+n
+java:S1128"LRemove this unused import 'com.nhnacademy.springmvcboard.entity.EntityUser'.(ã˜ô¯øÿÿÿÿ8‘À‡„€1
+R
+java:S1128"0Remove this unused import 'java.time.LocalDate'.(›‘¬èıÿÿÿÿ8îˆ„€1
+V
+java:S1128	"4Remove this unused import 'java.time.LocalDateTime'.(æÃ§ƒüÿÿÿÿ8‘À‡„€1

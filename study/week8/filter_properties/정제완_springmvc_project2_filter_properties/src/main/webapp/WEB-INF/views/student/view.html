@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="shortcut icon" type="image/x-icon" href="/resources/favicon.ico" />
+    <title>학생-조회</title>
+    <link rel="stylesheet" href="/resources/style.css" />
+</head>
+<body>
+    <th:block th:insert="~{login/loginInfo :: userinfo}" ></th:block>
+    <table>
+        <caption></caption>
+        <tbody>
+
+            <tr>
+                <th th:text="#{userId}">아이디</th>
+                <td th:text="${student.id}" ></td>
+            </tr>
+
+            <tr>
+                <th th:text="#{userName}">이름</th>
+                <td th:text="${student.name}"></td>
+            </tr>
+
+            <tr>
+                <th th:text="#{userGender}">성별</th>
+                <td th:text="${student.gender}"></td>
+            </tr>
+
+            <tr>
+                <th th:text="#{userAge}">나이</th>
+                <td th:text="${student.age}"></td>
+            </tr>
+            <tr>
+                <th th:text="#{studentRegister}">등록일</th>
+                <td th:text="${#temporals.format(student.createdAt)}"></td>
+            </tr>
+
+        </tbody>
+    </table>
+    <ul>
+        <li><a href="/student/list.do">리스트</a></li>
+        <li>
+            <a th:href="@{/student/update.do(id=${student.id})}">수정</a>
+        </li>
+        <li>
+            <form method="post" action="/student/delete.do">
+                <input type="hidden" name="id" th:value="${student.id}" />
+                <button type="submit">삭제</button>
+            </form>
+        </li>
+
+    </ul>
+
+</body>
+</html>

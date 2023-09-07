@@ -1,0 +1,34 @@
+package com.nhnacademy.student.controller;
+
+import com.nhnacademy.student.utils.CookieUtils;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.util.Objects;
+
+@Controller
+@RequestMapping(value = "/logout")
+public class LogoutController {
+
+    @GetMapping
+    public String logout(HttpServletRequest req,HttpServletResponse resp){
+        HttpSession session = req.getSession(false);
+        if(Objects.nonNull(session)) {
+            session.invalidate();
+        }
+
+        Cookie cookie =  CookieUtils.getCookie(req,"SESSION");
+        if(Objects.nonNull(cookie)){
+            cookie.setValue("");
+            cookie.setMaxAge(0);
+            resp.addCookie(cookie);
+        }
+        return "redirect:/login";
+    }
+}

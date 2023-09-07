@@ -1,0 +1,5 @@
+
+q
+java:S1450!"[Remove the "restTemplate" field and declare it as a local variable in the relevant methods.(„¤Ïƒ
+l	java:S116j"WRename this field "access_token" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(µäøª
+j	java:S116l"URename this field "token_type" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ö›ÿ

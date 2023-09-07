@@ -1,0 +1,14 @@
+POST localhost:8080/household
+Content-Type: application/json
+
+{
+  "householdSerialNumber": 2,
+  "householdResidentSerialNumber": 3,
+  "householdCompositionDate": "2030-10-08",
+  "householdCompositionReasonCode": "전입",
+  "currentHouseMovementAddress": "서울특별시 **동 어딘가"
+}
+
+###
+
+DELETE localhost:8080/household/2

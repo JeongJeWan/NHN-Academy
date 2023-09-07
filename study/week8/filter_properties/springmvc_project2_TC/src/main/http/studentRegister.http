@@ -1,0 +1,14 @@
+### 학생 등록
+POST http://localhost:8080/api/students/
+Content-Type: application/json
+
+{
+  "id": "marco",
+  "name": "마르코",
+  "gender": "M",
+  "age" : 30
+}
+
+#### 학생 조회
+#GET http://localhost:8080/api/students/marco
+#Content-Type: application/json

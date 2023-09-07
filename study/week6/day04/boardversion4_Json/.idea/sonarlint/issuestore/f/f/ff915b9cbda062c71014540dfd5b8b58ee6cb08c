@@ -1,0 +1,8 @@
+
+c
+java:S1075"ARefactor your code to get this URI from a customizable parameter.(ù§ Æıÿÿÿÿ8úî¬®ö0
+\	java:S899";Do something with the "boolean" value returned by "delete".(²Œ­ûÿÿÿÿ8ƒï¬®ö0
+p
+java:S4042"NUse "java.nio.file.Files#delete" here for better messages on error conditions.(²Œ­ûÿÿÿÿ8ƒï¬®ö0
+a
+java:S2147."DCombine this catch with the one at line 44, which has the same body.(ï­£Ä8ƒï¬®ö0

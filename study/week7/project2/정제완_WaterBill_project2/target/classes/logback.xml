@@ -1,0 +1,16 @@
+<configuration>
+
+    <appender name="ELAPSE" class="ch.qos.logback.core.FileAppender">
+        <file>elapse.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>%msg%n</pattern>
+        </encoder>
+    </appender>
+
+
+    <logger name="com.nhnacademy.springframework" level="INFO">
+        <appender-ref ref="ELAPSE" />
+    </logger>
+
+</configuration>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NHN 로그인</title>
+    <style>
+        /* login container */
+        .login-container {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            margin-top: 50px;
+            /*border: 2px solid #ccc;*/
+            /*border-radius: 20px;*/
+        }
+
+        /* input field */
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 20px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.3);
+            background-color: #f5f5f5;
+            font-size: 16px;
+        }
+
+        /* error message */
+        .error-message {
+            font-size: 14px;
+            color: red;
+            margin: 5px 0;
+        }
+
+        /* login button */
+        button[type="submit"] {
+            background-color: darkseagreen;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 0 5px rgba(0,0,0,0.3);
+        }
+
+        /* login button on hover */
+        button[type="submit"]:hover {
+            background-color: #fcb0c0;
+        }
+    </style>
+</head>
+<body>
+<h1>로그인</h1>
+<hr>
+<form method="post" action="/login">
+    <table class="none">
+        <tr>
+            <td colspan="2">
+                <input type="radio" name="authority" value="1" checked> 관리자
+                <input type="radio" name="authority" value="2"> 일반
+            </td>
+        </tr>
+        <tr>
+            <td>아이디</td>
+            <td><input type="text" name="id"></td>
+        </tr>
+        <tr>
+            <td>비밀번호</td>
+            <td><input type="password" name="password"></td>
+
+        </tr>
+        <tr>
+            <td><button disabled>회원가입</button></td>
+            <td><input type="submit" value="로그인" style="float: right"></td>
+        </tr>
+    </table>
+</form>
+<hr>
+<button onclick="history.back()">뒤로가기</button>
+</body>
+</html>

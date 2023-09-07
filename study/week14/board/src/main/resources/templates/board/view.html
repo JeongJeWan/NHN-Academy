@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NHN 게시판</title>
+    <link th:href="@{/css/style.css}" href="/css/style.css" rel="stylesheet">
+</head>
+<body>
+<h1>게시글 내용</h1>
+<hr>
+<button onclick="location.href='/board'">뒤로가기</button>
+<hr>
+<div class="box">
+    <div>
+        게시글
+        <span th:if="${post.post.user.userId == session.sessionId }">
+            <a class="right" th:href="@{/board/{id}/delete(id=${post.post.id})}"><input type="button" th:value="삭제"></a>
+            <a class="right" th:href="@{/board/{id}/modify(id=${post.post.id})}"><input type="button" th:value="수정"></a>
+        </span>
+        <span th:if="${session.authority == 1}">
+            <a class="right" th:if="${post.post.deleted}" th:href="@{/admin/board/{id}/recover(id=${post.post.id})}"><input type="button" th:value="복구"> </a>
+            <a class="right" th:href="@{/admin/board/{id}/delete(id=${post.post.id})}"><input type="button" th:value="삭제"></a>
+            <a class="right" th:href="@{/board/{id}/modify(id=${post.post.id})}"><input type="button" th:value="수정"></a>
+        </span>
+        <span style="float:right; width: 100px" th:text="' ❤️ ' + ${post.like}"></span>
+        <button style="float:right"
+                th:hidden="${session.sessionId == null}"
+                th:text="${like ? '좋아요 취소 ' : '좋아요 '}"
+                th:onclick="|location.href='@{/like/{id}(id=${post.post.id})}'|"></button>
+    </div>
+    <hr>
+    <table >
+        <tr><th>제목</th><td th:text="${post.post.title}" ></td></tr>
+        <tr><th>작성자</th><td th:text="${post.post.user.userId}"></td></tr>
+        <tr><th>작성시간</th><td th:text="${post.post.createdAt}"></td></tr>
+        <span class="modify" th:if="${post.post.modifier != null}">
+            <tr><th>수정자</th><td class="block" th:text="${post.post.modifier}"></td></tr>
+            <tr><th>수정시간</th><td class="block" th:text="${post.post.updatedAt}"></td></tr>
+        </span>
+        <tr><th colspan="2">내용</th></tr>
+        <tr><td class="text_lines" colspan="2" th:text="${post.post.content}" ></td></tr>
+        <tr><th>파일 첨부</th>
+            <td><ul><span th:each="file : ${post.files}">
+                <li><a th:href="@{/attach/{file}(file=${file.fileName})}" th:text="${file.fileName}"></a></li>
+            </span></ul></td>
+        </tr>
+    </table>
+</div><br/>
+<hr>
+<!--댓글 등록-->
+<div class="box">
+    댓글 달기<br/>
+    <hr>
+    <form method="post" th:action="@{/comment/{id}(id=${post.post.id})}">
+        <div><textarea class="comment-area" name="content"
+                       th:readonly="${session.sessionId == null}"
+                       th:placeholder="${session.sessionId == null ?
+                       '로그인 후 이용해주십시오.' : '키보드워리어는 되지맙시다.'}"></textarea></div>
+        <br/>
+        <input type="submit" value="등록">
+    </form>
+</div>
+<hr>
+<!--댓글 리스트-->
+<div class="box" th:each="comment : ${post.comments}" th:if="${comment != null}">
+    <div>
+        <span id="comment-id" th:text="${comment.id}" hidden></span>
+        <span id="comment-writer" th:text="${'작성자 : ' + comment.user.userId}"></span>
+        <hr>
+        <button style="float: right" id="comment-modify-button"
+                th:onclick="|location.href='@{/comment/{id}/modify(id=${comment.id})}'|"
+                th:if="${comment.user.userId == session.sessionId}">수정</button>
+        <button style="float: right" id="comment-delete-button"
+                th:if="${comment.user.userId == session.sessionId}"
+                th:onclick="|location.href='@{/comment/{id}/delete(id=${comment.id})}'|">삭제</button>
+        <span style="float: right" th:text="${comment.updatedAt == null ? '작성날짜 : ' + comment.createdAt : '수정날짜 : ' + comment.updatedAt}"></span>
+    </div>
+    <div id="comment-content" name="comment-content" style="background-color: gainsboro; width: 100%"
+          th:text="${comment.content}"
+          th:readonly="${session.sessionId != comment.user.userId}"></div>
+    <form method="post" id="comment-modify-form" th:action="@{/comment/{id}/modify(id=${comment.id})}" hidden>
+        <textarea name="content" class="comment-area" th:text="${comment.content}"></textarea>
+    </form>
+</div>
+</body>
+</html>

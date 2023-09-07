@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NHN Homepage</title>
+</head>
+<body>
+<h1>NHN BOARD</h1>
+<hr>
+<span th:if="${session.sessionId == null}">
+    <button onclick="location.href='/login'">로그인</button>
+</span>
+<span th:unless="${session.sessionId == null}">
+    <span th:text="${session.name + '님 환영합니다.'}"></span>
+    <button onclick="location.href='/logout'" >로그아웃</button>
+</span>
+<hr>
+<ul>
+    <li><a href="/board/">게시판</a> </li>
+</ul>
+</body>
+</html>

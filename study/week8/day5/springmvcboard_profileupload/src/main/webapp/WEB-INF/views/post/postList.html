@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <link rel="shortcut icon" type="image/x-icon" href="/resources/favicon.ico" />
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/resources/style.css" />
+    <title>게시물 목록</title>
+</head>
+<body>
+    <th:block th:insert="~{login/loginInfo :: userinfo}" ></th:block>
+    <h1 th:text="#{postList}"></h1>
+    <p ><a href="/post/register.do" th:text="#{postRegister}"></a> </p>
+    <p th:if="${siteVisitCount != null}" th:text="'siteVisitCount: ' + ${siteVisitCount}"></p>
+    <table>
+        <caption></caption>
+        <thead>
+            <tr>
+                <th th:text="#{number}"></th>
+                <th th:text="#{postId}"></th>
+                <th th:text="#{postTitle}"></th>
+                <th th:text="#{postContent}"></th>
+                <th th:text="#{postWriterUserId}"></th>
+                <th th:text="#{postWriteTime}"></th>
+                <th th:text="#{postViewCount}"></th>
+                <th th:text="#{check}"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="post, i : ${postPage.list}">
+                <td th:text="${postPage.totalCount - (postPage.pageNumber-1)*postPage.pageSize -i.index}"></td>
+                <td th:text="${post.postId}"></td>
+                <td>
+                    <a th:href="@{/post/view.do(postId=${post.postId})}" th:text="${post.title}"></a>
+                </td>
+                <td th:text="${post.content}"></td>
+                <td>
+                    <a th:href="@{/user/list.do(postId=${post.postId})}" th:text="${post.writerUserId}"></a>
+                </td>
+                <td th:text="${#temporals.format(post.writeTime)}"></td>
+                <td th:text="${post.viewCount}"></td>
+                <td>
+                    <a th:href="@{/post/view.do(postId=${post.postId})}" >cmd</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="page">
+        <a th:href="@{/post/list.do(page=${postPage.pageNumber-1} , size=${postPage.pageSize}  )}" th:if="${postPage.pageNumber gt 1 }" >이전</a>
+        <span th:text="${postPage.pageNumber}" />/<span th:text="${postPage.totalPageCount}"/>
+        <a th:href="@{/post/list.do(page=${postPage.pageNumber+1} , size=${postPage.pageSize}  )}" th:if="${postPage.pageNumber lt postPage.totalPageCount}" >다음</a>
+    </div>
+</body>
+</html>

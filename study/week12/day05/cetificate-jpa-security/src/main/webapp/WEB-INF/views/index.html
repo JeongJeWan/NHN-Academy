@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/resources/residentList.css">
+</head>
+<body>
+    <h2>NHN 동사무소</h2>
+    <hr/>
+    <a href="/resident?page=0&size=5">
+        <input type="button" value="모든 주민 목록">
+    </a>
+    <hr/>
+
+    <div sec:authorize="isAuthenticated()">
+
+        <span sec:authentication="name" />
+
+        <a href="/auth/logout">
+            <input type="button" value="로그아웃">
+        </a>
+
+<!--        <form method="post" action="/logout">-->
+<!--            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />-->
+<!--            <input type="submit" value="로그아웃">-->
+<!--        </form>-->
+    </div>
+    <div sec:authorize="!isAuthenticated()">
+        <ul>
+            <li>
+                <a href="/auth/login">
+                    <input type="button" value="로그인">
+                </a>
+            </li>
+            <br>
+            <li>
+                <a th:href="@{https://github.com/login/oauth/authorize(client_id=${clientId}, redirect_uri='http://localhost:8080/login/oauth2/code/github')}">
+                    <input type="button" value="깃허브 로그인">
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <br>
+
+    <div sec:authorize="hasAuthority('ROLE_USER')">
+        <a th:href="@{/resident/household/{residentId}(residentId=${residentId})}">
+            <input type="button" value="사용자 주민 목록">
+        </a>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/resources/residentList.css">
+    <title>주민 목룩</title>
+</head>
+<body>
+
+  <h2>주민 목록</h2>
+
+  <table class="resident-table">
+    <thead>
+      <tr class="header-row">
+        <th>번호</th>
+        <th>이름</th>
+        <th>성별</th>
+        <th>생일</th>
+        <th>가족관계증명서</th>
+        <th>주민등록등본</th>
+        <th>출생신고서</th>
+        <th>사망신고서</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="resident : ${residents}">
+        <td th:text="${resident.residentSerialNumber}"></td>
+        <td th:text="${resident.name}"></td>
+        <td th:text="${resident.genderCode}"></td>
+        <td th:text="${resident.birthDate}"></td>
+        <th>
+          <a th:href="@{/family/certificate/{number}(number=${resident.residentSerialNumber})}">
+            <input type="button" value="가족관계증명서">
+          </a>
+        </th>
+        <th>
+          <a th:href="@{/residentRegistration/certificate/{number}(number=${resident.residentSerialNumber})}">
+            <input type="button" value="주민등록등본">
+          </a>
+        </th>
+        <th>
+          <a th:href="@{/birth/certificate/{number}(number=${resident.residentSerialNumber})}">
+            <input type="button" value="출생신고서">
+          </a>
+        </th>
+        <th>
+          <a th:href="@{/death/certificate/{number}(number=${resident.residentSerialNumber})}">
+            <input type="button" value="사망신고서">
+          </a>
+        </th>
+      </tr>
+    </tbody>
+  </table>
+
+  <span th:each="page : ${pages}">
+    <a th:href="@{/resident(page=${page}, size = 5)}"> <span th:text="${page}"/> </a>
+  </span>
+
+</body>
+</html>

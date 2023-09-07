@@ -1,0 +1,33 @@
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="userinfo">
+    <div class="login-info">
+        <ul>
+            <li><span th:text="${#messages.msg('info.id')}"/> : <span th:text="${user.userId}" ></span></li>
+            <li><span th:text="${#messages.msg('info.name')}"/> : <span th:text="${user.userName}" ></span></li>
+            <li>
+                <button type="button" id="btn-logout" >로그아웃</button>
+            </li>
+            <li>
+                <button type="button" onclick="location.href=location.pathname + '?locale=ko' ">한국어</button>
+            </li>
+
+            <li>
+                <button type="button" onclick="location.href=location.pathname + '?locale=en' ">영어</button>
+            </li>
+
+        </ul>
+    </div>
+    <form method="post" id="logoutForm" action="/login/logout">
+    </form>
+
+    <script type="text/javascript">
+        window.addEventListener("DOMContentLoaded",function(){
+            const btnLogout = document.getElementById("btn-logout");
+            btnLogout.addEventListener("click",function(){
+                const logoutForm = document.getElementById("logoutForm");
+                logoutForm.submit();
+            });
+        });
+    </script>
+
+</div>

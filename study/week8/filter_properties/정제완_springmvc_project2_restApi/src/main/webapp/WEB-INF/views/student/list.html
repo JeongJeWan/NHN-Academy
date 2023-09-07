@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <link rel="shortcut icon" type="image/x-icon" href="/resources/favicon.ico" />
+    <meta charset="UTF-8"/>
+    <title>student - list</title>
+    <link rel="stylesheet" href="/resources/style.css" />
+</head>
+
+<body>
+    <th:block th:insert="~{login/loginInfo :: userinfo}" ></th:block>
+    <h1 th:text="#{studentList}"></h1>
+    <p><a href="/student/register.do" th:text="#{studentRegister}"></a></p>
+    <table>
+        <caption></caption>
+        <thead>
+            <tr>
+                <th th:text="#{userId}"></th>
+                <th th:text="#{userName}"></th>
+                <th th:text="#{userGender}"></th>
+                <th th:text="#{userAge}"></th>
+                <th th:text="#{check}"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="item : ${studentList}" >
+                <td th:text="${item.id}"></td>
+                <td th:text="${item.name}"></td>
+                <td th:text="${#nhnacademy.gender(item.gender)}"></td>
+                <td th:text="${item.age}"></td>
+                <td>
+                    <a th:href="@{/student/view.do(id=${item.id})}" th:text="#{check}"></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

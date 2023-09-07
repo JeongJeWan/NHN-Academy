@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>게시물 수정</title>
+    <link th:href="@{/css/style.css}" href="/css/style.css" rel="stylesheet">
+</head>
+<body>
+<h1>게시물 수정</h1>
+<hr>
+<div class="box">
+<form method="post" th:action="@{/board/{id}/modify(id=${post.id})}" enctype="multipart/form-data">
+    <table border="0">
+        <tr><th>제목</th><td><input type="text" th:name="title" th:value="${post.title}"/></td></tr>
+        <tr><th>수정자</th><td class="block"><input type="text" name="modifier" th:value="${session.sessionId}" readonly/></td></tr>
+        <tr><th colspan="2">내용</th></tr>
+        <tr><td colspan="2"><textarea name="content" th:field="${post.content}"></textarea></td></tr>
+        <tr><th>파일 첨부</th><td><input type="file" name="files" multiple></td></tr>
+        <tr><th th:text="'첨부된 파일(' + ${post.files.size} + ')개'" colspan="2"></th></tr>
+        <tr th:each="file : ${post.files}">
+            <th><input type="checkbox" name="deleteFiles" th:value="${file.id}" ></th><td th:text="${file.fileName}"></td>
+        </tr>
+    </table>
+    <h6>삭제할 파일들을 선택해주세요.</h6>
+    <hr>
+    <input type="submit" value="수정"/>
+    <input type="button" onclick="history.back()" value="취소">
+</form>
+</div>
+</body>
+</html>

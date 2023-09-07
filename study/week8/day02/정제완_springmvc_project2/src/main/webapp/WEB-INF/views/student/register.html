@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <link rel="shortcut icon" type="image/x-icon" href="/resources/favicon.ico" />
+        <title>학생-등록</title>
+        <link rel="stylesheet" href="/resources/style.css" />
+        <meta charset="UTF-8" />
+    </head>
+
+    <body>
+    <th:block th:insert="~{login/loginInfo :: userinfo}" ></th:block>
+
+        <form method="post" th:action="@{ ${ student.id == null ? '/student/register.do' : '/student/update.do' } }" th:object="${student}" >
+            <table>
+                <caption></caption>
+                <tbody>
+                    <tr>
+                        <th th:text="#{userId}"></th>
+                        <td><input type="text" th:field="*{id}"  required /></td>
+                    </tr>
+                    <tr>
+                        <th th:text="#{userName}"></th>
+                        <td><input type="text" th:field="*{name}" required /></td>
+                    </tr>
+                    <tr>
+                        <th th:text="#{userGender}"></th>
+                        <td>
+                            <input type="radio" th:field="*{gender}" value="M"   th:text="#{M}"/>
+                            <input type="radio" th:field="*{gender}" value="F"   th:text="#{F}"/>
+                            <input type="radio" th:field="*{gender}" value="C"   />??
+                        </td>
+                    </tr>
+                    <tr>
+                        <th th:text="#{userAge}"></th>
+                        <td><input type="number" th:field="*{age}" required /></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>
+                <button type="submit" th:text="${student.id == null ? '등록' : '수정'}" ></button>
+            </p>
+        </form>
+    </body>
+</html>

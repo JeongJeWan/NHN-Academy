@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <link rel="shortcut icon" type="image/x-icon" href="/resources/favicon.ico" />
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/resources/style.css" />
+    <title>게시물 목록</title>
+</head>
+<body>
+    <th:block th:insert="~{login/loginInfo :: userinfo}" ></th:block>
+    <h1 th:text="#{postList}"></h1>
+    <p ><a th:if="${session.admin != null}" href="/post/register.do" th:text="#{postRegister}"></a> </p>
+    <p th:if="${siteVisitCount != null}" th:text="'siteVisitCount: ' + ${siteVisitCount}"></p>
+    <table>
+        <caption></caption>
+        <thead>
+            <tr>
+                <th th:text="#{postId}"></th>
+                <th th:text="#{postTitle}"></th>
+                <th th:text="#{postContent}"></th>
+                <th th:text="#{postWriterUserId}"></th>
+                <th th:text="#{postWriteTime}"></th>
+                <th th:text="#{postViewCount}"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="post : ${postList}">
+                <td th:text="${post.postId}"></td>
+                <td>
+                    <a th:href="@{/post/view.do(postId=${post.postId})}" th:text="${post.title}"></a>
+                </td>
+                <td th:text="${post.content}"></td>
+                <td>
+                    <a th:href="@{/user/list.do(postId=${post.postId})}" th:text="${post.writerUserId}"></a>
+                </td>
+                <td th:text="${#temporals.format(post.writeTime)}"></td>
+                <td th:text="${post.viewCount}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

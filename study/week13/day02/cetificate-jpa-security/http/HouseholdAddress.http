@@ -1,0 +1,22 @@
+POST localhost:8080/household/1/movement
+Content-Type: application/json
+
+{
+  "houseMovementReportDate": "2023-06-30",
+  "houseMovementAddress": "경상남도 거제시 사등면",
+  "lastAddressYn": "N"
+}
+
+###
+
+PUT localhost:8080/household/1/movement/20230630
+Content-Type: application/json
+
+{
+  "houseMovementAddress": "광주광역시 동구",
+  "lastAddressYn": "N"
+}
+
+###
+
+DELETE localhost:8080/household/1/movement/20230630

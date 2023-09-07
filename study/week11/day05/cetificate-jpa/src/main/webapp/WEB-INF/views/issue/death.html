@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>사망신고서</title>
+    <link rel="stylesheet" href="/resources/birthDeathReport.css">
+</head>
+<body>
+    <h2>사망신고서</h2>
+    <hr/>
+    <span> <strong>신고일 : </strong> </span> <span th:text="${reportDate}"/>
+    <hr/>
+
+    <h4>-사망자-</h4>
+    <span><strong>성명 : </strong> </span> <span th:text="${certificate.resident.name}"/>
+    <span><strong>주민등록번호 : </strong></span> <span th:text="${certificate.resident.residentRegistrationNumber}"/>
+    <br/>
+    <span><strong>사망일시 : </strong></span> <span th:text="${deathDate}"/>
+
+    <br/>
+    <b>사망장소</b> <br/>
+    <span><strong>주민등록번호 : </strong></span> <span th:text="${certificate.resident.deathPlaceCode}"/>
+    <span><strong>주민등록번호 : </strong></span> <span th:text="${certificate.resident.deathPlaceAddress}"/>
+
+    <Br/>
+    <h4>-신고인-</h4>
+    <span><strong>성명 : </strong> </span> <span th:text="${deathReport.reportResident.name}"/>
+    <span><strong>주민등록번호 : </strong> </span> <span th:text="${deathReport.reportResident.residentRegistrationNumber}"/>
+    <br/>
+
+    <span><strong>자격 : </strong> </span> <span th:text="${deathReport.deathReportQualificationsCode}"/>
+    <br/>
+    <span><strong>이메일 : </strong> </span> <span th:text="${deathReport.emailAddress}"/>
+    <span><strong>전화번호 : </strong> </span> <span th:text="${deathReport.phoneNumber}"/>
+
+    <br/>
+    <br/>
+    <a href="/resident?page=0?&size=5">
+        <input type="button" value="뒤로가기">
+    </a>
+
+</body>
+</html>

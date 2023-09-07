@@ -1,0 +1,7 @@
+
+u
+java:S3655,"XCall "baseResident.isPresent()" or "!baseResident.isEmpty()" before accessing the value.(Šß¶±8¯¢÷¥‚1
+y
+java:S3655+"\Call "familyResident.isPresent()" or "!familyResident.isEmpty()" before accessing the value.(Ú³Ž®8°¢÷¥‚1
+t
+java:S1128"RRemove this unused import 'com.nhnacademy.jpa.dto.resident.ResidentCreateRequest'.(ÙÌ†€ùÿÿÿÿ8ãÜˆ»‚1

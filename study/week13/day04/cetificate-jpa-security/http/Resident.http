@@ -1,0 +1,41 @@
+GET /residents/1 HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+###
+
+POST /residents HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+#Accept: application/json
+
+{
+  "residentSerialNumber": 8,
+  "name": "marco",
+  "residentRegistrationNumber": "909090-1949959",
+  "genderCode": "남",
+  "birthDate": "1998-05-05T10:13:30",
+  "birthPlaceCode": "병원",
+  "registrationBaseAddress": "광주 광역시 동구 서석동",
+  "deathDate": null,
+  "deathPlaceCode": null,
+  "deathPlaceAddress": null,
+  "id": "user8",
+  "password": "1234",
+  "email": "marco@nhnacademy.com"
+}
+
+###
+
+PUT localhost:8080/residents/8
+Content-Type: application/json
+
+{
+  "name": "변경된 marco",
+  "deathDate": "2022-12-31T11:05:30",
+  "deathPlaceCode": "고속도로",
+  "deathPlaceAddress": "서해안 고속도로"
+}
+
+###
+DELETE localhost:8080/residents/8

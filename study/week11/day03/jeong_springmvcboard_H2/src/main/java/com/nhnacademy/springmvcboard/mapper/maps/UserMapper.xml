@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nhnacademy.springmvcboard.mapper.UserMapper" >
+
+    <insert id="register" parameterType="com.nhnacademy.springmvcboard.domain.User">
+        insert into user set
+                             user_id=#{userId},
+                             user_password=#{userPassword},
+                             user_name=#{userName},
+                             profile_file_name=#{profileFileName},
+                             created_at = now()
+    </insert>
+
+    <update id="modify" parameterType="com.nhnacademy.springmvcboard.domain.User">
+        update user set
+                        user_id=#{userId},
+                        user_password=#{userPassword},
+                        user_name=#{userName},
+                        profile_file_name=#{profileFileName},
+                        created_at = now()
+        where user_id=#{userId}
+    </update>
+
+    <delete id="delete" parameterType="string">
+        delete from user
+        where user_id=#{id}
+    </delete>
+
+    <select id="getUsers" resultType="com.nhnacademy.springmvcboard.domain.User">
+        select * from users
+    </select>
+    <select id="getUserById" resultType="com.nhnacademy.springmvcboard.domain.User">
+        SELECT *
+        from user
+        where user_id=#{id}
+    </select>
+    <select id="exitsById" resultType="java.lang.Boolean">
+        select count(*)
+        from user
+        where user_id=#{id}
+    </select>
+</mapper>

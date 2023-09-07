@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="shortcut icon" type="image/x-icon" href="/resources/favicon.ico" />
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/resources/style.css" />
+    <title>사용자-목록</title>
+</head>
+<body>
+<th:block th:insert="~{login/loginInfo :: userinfo}" ></th:block>
+<h2 th:text="#{userView}" style="text-align: center"></h2>
+<span>
+    <a href="/post/list.do" th:text="#{postList}"></a>
+</span>
+    <p><a href="/user/register.do" th:text="#{userRegister}"></a></p>
+<table>
+    <caption></caption>
+    <thead>
+    <tr>
+        <th th:if="${session.admin != null}" th:text="#{userId}"></th>
+        <th th:if="${session.admin != null}" th:text="#{userPassword}"></th>
+        <th th:text="#{userName}"></th>
+        <th th:text="#{userProfileFileName}"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user : ${userList}">
+        <td th:if="${session.admin != null}" th:text="${user.userId}"></td>
+        <td th:if="${session.admin != null}" th:text="${user.userPassword}"></td>
+        <td>
+            <a th:href="@{/user/view.do(userId=${user.userId})}" th:text="${user.userName}"></a>
+        </td>
+        <td th:text="${user.profileFileName}"></td>
+<!--        <td-->
+<!--        <td th:if="${user.profileFileName != null}">-->
+<!--            <img th:src="@{/fileImage(fileName=${user.profileFileName})}" th:alt="${user.profileFileName}" th:title="${user.profileFileName}"/>-->
+<!--        </td>-->
+<!--        <td th:unless="${user.profileFileName != null}">-->
+<!--            <span th:text="#{none}"></span>-->
+<!--        </td>-->
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

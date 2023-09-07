@@ -1,0 +1,61 @@
+table {
+    width: 100%;
+}
+th {
+    width: 10%;
+    text-align: left;
+}
+td {
+    width: 90%;
+     border: 1px groove;
+ }
+div {
+    width: 100%;
+}
+.box {
+    width: 80%;
+    padding: 5px;
+    border: 1px groove;
+}
+.box .full {
+    width: 100%;
+    background-color: gainsboro;
+}
+.modify {
+    background-color: white;
+}
+.block {
+    background-color: gainsboro;
+}
+.box td textarea {
+    padding-left: 10px;
+    border: none;
+    width: 99%;
+    height: 200px;
+    resize: none;
+}
+.box td input {
+    padding-left: 10px;
+    border: none;
+    width: 99%;
+}
+.box td input[readonly] {
+    padding-left: 10px;
+    background-color: transparent;
+}
+.comment-area {
+    width: 98%;
+    height: 80px;
+    resize: none;
+}
+
+.text_lines {
+    height: 100px;
+    overflow-y: auto;
+}
+.right {
+    float :right;
+}
+th input[type=radio] {
+    float: right;
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="shortcut icon" type="image/x-icon" href="/resources/favicon.ico" />
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/resources/style.css" />
+    <title>사용자-목록</title>
+</head>
+<body>
+<th:block th:insert="~{login/loginInfo :: userinfo}" ></th:block>
+<h2 th:text="#{userView}" style="text-align: center"></h2>
+<span>
+    <a href="/post/list.do" th:text="#{postList}"></a>
+</span>
+    <p><a th:if="${session.admin != null}"  href="/user/register.do" th:text="#{userRegister}"></a></p>
+<table>
+    <caption></caption>
+    <thead>
+    <tr>
+        <th th:text="#{number}"></th>
+        <th th:if="${session.admin != null}" th:text="#{userId}"></th>
+        <th th:if="${session.admin != null}" th:text="#{userPassword}"></th>
+        <th th:text="#{userName}"></th>
+        <th th:text="#{check}"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user, i : ${userPage.list}">
+        <td th:text="${userPage.totalCount - (userPage.pageNumber-1)*userPage.pageSize -i.index}"></td>
+        <td th:if="${session.admin != null}" th:text="${user.userId}"></td>
+        <td th:if="${session.admin != null}" th:text="${user.userPassword}"></td>
+        <td th:text="${user.userName}"></td>
+        <td>
+            <a th:href="@{/user/view.do(page=${userPage.pageNumber}, size=${userPage.pageSize}, userId=${user.userId})}">조회</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<div class="page">
+    <a th:href="@{/user/list.do(page=${userPage.pageNumber-1} , size=${userPage.pageSize}  )}" th:if="${userPage.pageNumber gt 1 }" >이전</a>
+    <span th:text="${userPage.pageNumber}" />/<span th:text="${userPage.totalPageCount}"/>
+    <a th:href="@{/user/list.do(page=${userPage.pageNumber+1} , size=${userPage.pageSize}  )}" th:if="${userPage.pageNumber lt userPage.totalPageCount}" >다음</a>
+</div>
+</body>
+</html>

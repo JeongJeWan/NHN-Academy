@@ -1,0 +1,66 @@
+h2 {
+    text-align: center;
+}
+
+table {
+    margin: 0 auto;
+    width: 80%;
+    border-collapse: collapse;
+    border: 1px #ccc solid;
+}
+
+table tr>td {
+    text-align: center;
+    padding: 1px;
+    border: 1px #ccc solid;
+    font-size: 20px;
+}
+
+table tr>th {
+    text-align: center;
+    padding: 1px;
+    border: 1px #ccc solid;
+    font-size: 20px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.pagination a,
+.pagination span {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    margin: 0 5px;
+    border-radius: 50%;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    background-color: #fff;
+    text-decoration: none;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.pagination a:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+.pagination .active a {
+    background-color: #333;
+    color: #fff;
+    box-shadow: none;
+}
+
+.pagination .disabled a,
+.pagination .disabled span {
+    opacity: 0.5;
+    pointer-events: none;
+}

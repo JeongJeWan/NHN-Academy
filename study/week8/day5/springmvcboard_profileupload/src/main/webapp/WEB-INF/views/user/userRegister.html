@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="shortcut icon" type="image/x-icon" href="/resources/favicon.ico" />
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/resources/style.css" />
+    <title>사용자 등록</title>
+</head>
+<body>
+<th:block th:insert="~{login/loginInfo :: userinfo}" ></th:block>
+<form method="post" th:action="@{ ${ user.userId == null ? '/user/register.do' : '/user/update.do' } }" th:object="${user}" >
+  <table>
+    <caption></caption>
+    <tbody>
+    <tr>
+      <th th:text="#{userId}"></th>
+      <td><input type="text" th:field="*{userId}"  required /></td>
+    </tr>
+    <tr>
+      <th th:text="#{userPassword}"></th>
+      <td><input type="text" th:field="*{userPassword}" required /></td>
+    </tr>
+    <tr>
+      <th th:text="#{userName}"></th>
+      <td><input type="text" th:field="*{userName}" required /></td>
+      <td>
+      </td>
+    </tr>
+    <tr>
+      <th th:text="#{userProfileFileName}"></th>
+      <td>
+        <p><input type="file" name="profileFile" /></p>
+        <p>
+          <img th:src="@{/profile(userId=*{userId})}" th:if="not *{#strings.isEmpty(profileFileName)}"  />
+        </p>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <p>
+    <button type="submit" th:text="${user.userId == null ? '등록' : '수정'}" ></button>
+  </p>
+</form>
+</body>
+</html>

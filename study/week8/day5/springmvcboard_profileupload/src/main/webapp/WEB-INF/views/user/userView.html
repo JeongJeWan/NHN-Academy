@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko"  xmlns:th="http://www.thymeleaf.org">
+<head>
+      <link rel="shortcut icon" type="image/x-icon" href="/resources/favicon.ico" />
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/resources/style.css" />
+    <title>사용자 조회</title>
+</head>
+<body>
+<th:block th:insert="~{login/loginInfo :: userinfo}" ></th:block>
+<table>
+  <caption></caption>
+  <tbody>
+  <tr>
+    <th th:text="#{userId}"></th>
+    <td th:text="${user.userId}" ></td>
+  </tr>
+
+  <tr>
+    <th th:text="#{userPassword}"></th>
+    <td th:text="${user.userPassword}"></td>
+  </tr>
+
+  <tr>
+    <th th:text="#{userName}"></th>
+    <td th:text="${user.userName}"></td>
+  </tr>
+
+  <tr>
+    <th th:text="#{userProfileFileName}"></th>
+    <td>
+      <p th:if="not ${#strings.isEmpty(user.profileFileName)}" ><img th:src="@{/profile(userId=${user.userId})}"  /></p>
+      <p th:if="not ${#strings.isEmpty(user.profileFileName)}" ><a th:href="@{/profile/download(userId=${user.userId})}">다운로드</a></p>
+    </td>
+  </tr>
+  <tr>
+    <th th:text="#{studentRegister}"></th>
+    <td th:text="${#temporals.format(user.createdAt)}"></td>
+  </tr>
+
+  </tbody>
+</table>
+<ul>
+  <li><a href="/user/list.do">리스트</a></li>
+  <li>
+    <a th:href="@{/user/update.do(userId=${user.userId})}">수정</a>
+  </li>
+  <li>
+    <form method="post" action="/user/delete.do">
+      <input type="hidden" name="userId" th:value="${user.userId}" />
+      <button type="submit">삭제</button>
+    </form>
+  </li>
+
+</ul>
+</body>
+</html>

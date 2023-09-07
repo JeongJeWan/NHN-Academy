@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="shortcut icon" type="image/x-icon" href="/resources/favicon.ico" />
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/resources/style.css" />
+    <title>게시물 조회</title>
+</head>
+<body>
+  <th:block th:insert="~{login/loginInfo :: userinfo}" ></th:block>
+  <table>
+    <caption></caption>
+      <tbody>
+        <tr>
+          <th th:text="#{postId}"></th>
+          <td th:text="${post.postId}"></td>
+        </tr>
+        <tr>
+          <th th:text="#{postTitle}"></th>
+          <td th:text="${post.title}"></td>
+        </tr>
+        <tr>
+          <th th:text="#{postContent}"></th>
+          <td th:text="${post.content}"></td>
+        </tr>
+        <tr>
+          <th th:text="#{postWriterUserId}"></th>
+          <td th:text="${post.writerUserId}"></td>
+        </tr>
+        <tr>
+          <th th:text="#{postWriteTime}"></th>
+          <td th:text="${#temporals.format(post.writeTime)}"></td>
+        </tr>
+        <tr>
+          <th th:text="#{postViewCount}"></th>
+          <td th:text="${post.viewCount}"></td>
+        </tr>
+      </tbody>
+  </table>
+  <ul>
+    <li>
+      <a th:href="@{/post/list.do}" th:text="#{List}"></a>
+    </li>
+    <li>
+      <a th:href="@{/post/update.do(postId=${post.postId})}" th:text="#{Modift}"></a>
+    </li>
+    <li>
+      <form method="post" action="/post/delete.do">
+        <input type="hidden" name="postId" th:value="${post.postId}" />
+        <button type="submit" th:text="#{Delete}"></button>
+      </form>
+    </li>
+  </ul>
+</body>
+</html>

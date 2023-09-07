@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8" />
+    <title>Main</title>
+</head>
+<body>
+    <h1>Main</h1>
+
+    <th:block th:include="fragments/heading" />
+
+    <ul>
+        <li>
+            <a href="/resident?page=0?&size=5">
+                <input type="button" value="모든 주민 리스트">
+            </a>
+        </li>
+        <li>
+            <a th:href="@{/household/{residentId}(residentId=${residentId})}">
+                <input type="button" value="가족 주민 리스트">
+            </a>
+        </li>
+        <li sec:authorize="hasAuthority('ROLE_ADMIN')">
+            <a href="/admin/manage">Admin Tool</a>
+        </li>
+        <li sec:authorize-url="/project/1">
+            <a href="/project/1">Public Project</a>
+        </li>
+        <li sec:authorize="hasAnyAuthority('ROLE_ADMIN', 'ROLE_MEMBER')">
+            <a href="/private-project/2">Private Project</a>
+        </li>
+    </ul>
+
+    <li>
+        <a href="/admin-only">admin-only</a>
+    </li>
+
+    <br />
+
+</body>
+</html>

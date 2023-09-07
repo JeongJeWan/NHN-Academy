@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/resources/residentList.css">
+    <title>가족관계증명서</title>
+</head>
+<body>
+    <h2>가족관계증명서</h2>
+    <br/>
+
+    <table class="resident-table">
+        <thead>
+        <tr class="header-row">
+            <th>발급일</th>
+            <th>증명성 확인번호</th>
+            <th>등록기준지</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td th:text="${reportDate}"></td>
+            <td th:text="${certificate.certificateConfirmationNumber}"></td>
+            <td th:text="${address}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <hr/>
+
+    <table class="resident-table">
+        <thead>
+            <tr class="header-row">
+                <td>구분</td>
+                <td>성명</td>
+                <td>출생연월일</td>
+                <td>주민등록번호</td>
+                <td>성별</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="content : ${contents}">
+                <td th:text="${content.relation}"></td>
+                <td th:text="${content.name}"></td>
+                <td th:text="${content.birth}"></td>
+                <td th:text="${content.idNumber}"></td>
+                <td th:text="${content.genderCode}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br/>
+
+    <a href="/resident?page=0?&size=5">
+        <input type="button" value="뒤로가기">
+    </a>
+
+</body>
+</html>

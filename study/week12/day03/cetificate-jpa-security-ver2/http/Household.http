@@ -1,0 +1,14 @@
+POST localhost:8080/household
+Content-Type: application/json
+
+{
+  "householdSerialNumber": 2,
+  "householdResidentSerialNumber": 3,
+  "householdCompositionDate": "2023-06-08",
+  "householdCompositionReasonCode": "전입",
+  "currentHouseMovementAddress": "광주광역시 서석동 조선대학교"
+}
+
+###
+
+DELETE localhost:8080/household/2

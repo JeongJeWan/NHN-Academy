@@ -1,0 +1,56 @@
+POST localhost:8080/residents/7/birth
+Content-Type: application/json
+
+{
+  "residentSerialNumber": 5,
+  "birthDeathTypeCode": "출생",
+  "birthDeathReportDate": "2023-03-24",
+  "deathReportQualificationsCode": null,
+  "emailAddress": "marco@naver.com",
+  "phoneNumber": "010-1234-1234"
+}
+
+###
+
+PUT localhost:8080/residents/7/birth/5
+Content-Type: application/json
+
+{
+  "birthDeathReportDate": "2019-12-30",
+  "emailAddress": "narco@nhnacademy.com",
+  "phoneNumber": "010-2345-6789"
+}
+
+###
+
+DELETE localhost:8080/residents/7/birth/5
+
+
+###
+
+POST localhost:8080/residents/7/death
+Content-Type: application/json
+
+{
+  "residentSerialNumber": 5,
+  "birthDeathTypeCode": "사망",
+  "birthDeathReportDate": "2019-12-30",
+  "birthReportQualificationsCode": null,
+  "emailAddress": "marco@nhn.com",
+  "phoneNumber": "010-1232-1232"
+}
+
+###
+
+PUT localhost:8080/residents/7/death/5
+Content-Type: application/json
+
+{
+  "birthDeathReportDate": "2050-06-29",
+  "emailAddress": "marco@nhnacademy.com",
+  "phoneNumber": "010-3323-2323"
+}
+
+###
+
+DELETE localhost:8080/residents/7/death/5

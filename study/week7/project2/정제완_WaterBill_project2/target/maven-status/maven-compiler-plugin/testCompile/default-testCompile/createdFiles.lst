@@ -1,0 +1,5 @@
+com/nhnacademy/springframework/repository/CsvJsonDataParserTest.class
+com/nhnacademy/springframework/report/DefaultResultReportTest.class
+com/nhnacademy/springframework/service/DefaultConstantWaterUsageServiceTest.class
+com/nhnacademy/springframework/repository/DefaultWaterBillRepositoryTest.class
+com/nhnacademy/springframework/repository/CsvDataParserTest.class

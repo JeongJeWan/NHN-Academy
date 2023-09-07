@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>주민등록등본</title>
+</head>
+<body>
+    <h2>주민등록등본</h2>
+    <hr/>
+
+    <b>발급일: </b>
+    <b>증명성 확인번호: </b>
+    <hr/>
+    <b>세대주 성명: </b>
+    <b>세대구성 사유: </b>
+    <b>세대구성 일자: </b>
+    <hr/>
+
+    <table>
+        <thead>
+            <tr>
+                <th>주소 구분</th>
+                <th>주소</th>
+                <th>신고일</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="address : ${addresses}">
+                <td th:text="${address.addressComposition}"></td>
+                <td th:text="${address.address}"></td>
+                <td th:text="${address.reportDate}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table>
+        <thead>
+            <tr>
+                <td>세대주 관계</td>
+                <td>성명</td>
+                <td>주민등록번호</td>
+                <td>신고일</td>
+                <td>변동사유</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="content : ${contents}">
+                <td th:text="${content.relationship}"></td>
+                <td th:text="${content.name}"></td>
+                <td th:text="${content.idNumber}"></td>
+                <td th:text="${content.reportDate}"></td>
+                <td th:text="${content.reasonCode}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br/>
+
+    <a href="/resident?page=0?&size=5">
+        <input type="button" value="뒤로가기">
+    </a>
+
+
+</body>
+</html>

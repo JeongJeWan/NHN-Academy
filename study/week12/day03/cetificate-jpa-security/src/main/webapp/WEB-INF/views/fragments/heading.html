@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+    <div sec:authorize="isAuthenticated()">
+
+        <span sec:authentication="name" /> Logged on
+
+        <form method="post" action="/logout">
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+            <input type="submit" value="로그아웃">
+        </form>
+    </div>
+    <div sec:authorize="!isAuthenticated()">
+        <ul>
+            <li>
+                <a sec:authorize="!isAuthenticated()" href="/form/login">
+                    <input type="button" value="로그인">
+                </a>
+            </li>
+            <li>
+                <a href="/oauth/login">
+                    <input type="button" value="깃허브 로그인">
+                </a>
+            </li>
+        </ul>
+    </div>
+<br/>
+
+</html>

@@ -1,0 +1,7 @@
+
+`
+java:S1596\">Replace "Collections.EMPTY_LIST" by "Collections.emptyList()".(๗จ๖๚ÿÿÿÿ8ยํัต๗0
+`
+java:S1596g">Replace "Collections.EMPTY_LIST" by "Collections.emptyList()".(๗จ๖๚ÿÿÿÿ8ยํัต๗0
+a
+java:S2259="DA "NullPointerException" could be thrown; "target" is nullable here.(๑Ý’Þ8ึํัต๗0

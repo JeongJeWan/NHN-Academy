@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register Post</title>
+    <link th:href="@{/css/style.css}" href="/css/style.css" rel="stylesheet">
+</head>
+<body>
+<h1>게시글 등록</h1>
+<hr>
+<form class="box" method="post" action="/board/register" enctype="multipart/form-data">
+  <table border="0" >
+    <tr>
+      <th>제목</th>
+      <td><input type="text" name="title"/></td>
+    </tr>
+    <tr>
+      <th>작성자</th>
+      <td><input type="text" name="writer" th:value="${session.sessionId}" disabled/></td>
+    </tr>
+    <tr>
+      <th colspan="2">내용</th>
+    </tr>
+    <tr>
+      <td colspan="2"><textarea name="content" rows="10"></textarea></td>
+    </tr>
+    <tr>
+      <th>파일 첨부</th>
+      <td><input type="file" name="files" multiple></td>
+    </tr>
+  </table>
+  <hr>
+  <input type="submit" value="등록"/>
+  <input type="button" onclick="location.href='/board'" value="취소">
+</form>
+</body>
+</html>
